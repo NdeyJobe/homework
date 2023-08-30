@@ -1,0 +1,75 @@
+---
+title: "Homework 0"
+author: "Ndey Isatou Jobe"
+format: html
+execute: 
+  echo: false
+---
+
+# Solutions:
+
+## The quadratic equation is:
+
+$$
+f(x) = ax^2 + bx +c
+$$
+
+```{r}
+# Given values
+a = 1
+b = 3
+c = 2
+
+# Coefficients of the quadratic equation
+coefficients <- c(a, b, c)
+```
+
+## The roots of the quadratic equation are:
+
+```{r}
+# Quadratic equation: ax^2 + bx + c
+quadratic_equation <- function(x) {
+  a * x^2 + b * x + c
+}
+
+# Calculate the discriminant
+discriminant <- b^2 - 4 * a * c
+
+# Check if the discriminant is non-negative
+if (discriminant >= 0) {
+  # Calculate the two solutions
+  root1 <- (-b + sqrt(discriminant)) / (2 * a)
+  root2 <- (-b - sqrt(discriminant)) / (2 * a)
+  
+  roots <- c(root1, root2)
+  
+  # Print the solutions
+  cat("Root 1:", root1, "\n")
+  cat("Root 2:", root2, "\n")
+} else {
+  cat("The quadratic equation has complex roots. \n")
+}
+```
+
+## x-values for the plot are:
+
+```{r}
+# x values
+x_vals <- seq(from = -5, to = 5, length.out = 100)
+print(x_vals)
+```
+
+## The corresponding y values are:
+
+```{r}
+# Corresponding y values
+y_vals <- quadratic_equation(x_vals)
+print(y_vals)
+```
+
+## Plot of the quadratic equation curve:
+
+```{r}
+# Plot of the quadratic equation
+plot(x = x_vals, y = y_vals, type = "l", col = "blue", xlab = "x", ylab = "y", main = "Quadratic Equation")
+```
